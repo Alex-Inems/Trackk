@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# TrackMe
+
+**TrackMe** is a simple budget-tracking application that allows users to manage their transactions and convert currencies based on their preferences. Built with Next.js, TypeScript, and Redux, TrackMe provides a seamless experience for budgeting and currency conversion using Firebase for authentication and a currency conversion API.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [State Management](#state-management)
+- [Authentication](#authentication)
+- [Currency Conversion](#currency-conversion)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **User Authentication**: Sign up and log in using Firebase.
+- **Budget Tracking**: Users can add and manage their transactions, including income and expenses.
+- **Currency Conversion**: Convert transaction amounts into different currencies based on user preferences using a currency conversion API.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+
+## Technologies Used
+
+- **Next.js**: React framework for server-side rendering and optimized performance.
+- **Redux**: State management for handling user authentication and transaction data.
+- **TypeScript**: Superset of JavaScript for static typing and better code maintainability.
+- **Tailwind CSS**: Utility-first CSS framework for responsive and flexible styling.
+- **Firebase**: Handles user authentication and database for storing transaction data.
+- **Currency Conversion API**: Fetches real-time exchange rates based on user preferences.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you start, ensure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [Git](https://git-scm.com/)
+- A Firebase account for authentication setup.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   \`\`\`bash
+   git clone https://github.com/your-username/TrackMe.git
+   cd TrackMe
+   \`\`\`
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Set up environment variables:
+   
+   Create a `.env.local` file in the root directory and configure your Firebase and Currency API credentials:
 
-## Deploy on Vercel
+   \`\`\`bash
+   NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
+   NEXT_PUBLIC_EXCHANGE_RATE_API_KEY=your-exchange-rate-api-key
+   \`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+## Usage
+
+- **Home Page**: Displays a list of transactions.
+- **Add Transactions**: Users can add new transactions for income or expenses.
+- **Currency Preference**: Users can set a preferred currency, and transaction values will be converted accordingly.
+
+## State Management
+
+TrackMe uses **Redux** to handle state management:
+
+- **Auth State**: Manages the user’s sign-in state using Firebase.
+- **Transaction State**: Stores and updates the user’s transaction data.
+- **Currency State**: Handles currency preferences and fetches exchange rates from the API.
+
+## Authentication
+
+TrackMe uses **Firebase Authentication** for user sign-up and sign-in. Firebase manages user sessions, and users must be logged in to add or view their transactions.
+
+## Currency Conversion
+
+TrackMe provides real-time currency conversion using a **Currency Conversion API**. Users can select their preferred currency, and all transactions are automatically converted based on the latest exchange rates.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m 'Add feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Open a pull request.
+
+Please ensure your code follows TypeScript and ESLint rules.
+
+## License
+
+This project is licensed under the MIT License.
